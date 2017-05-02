@@ -22,7 +22,7 @@
 	</div>
 
 	<div class="title">
-		CMG Test app
+		CMG Laravel CRUD
 	</div>		  
 	</div>
 
