@@ -1,0 +1,31 @@
+@extends('welcome')
+@section('title', 'CMG test app')
+@section('form')
+    @parent
+	<div>
+        <div>
+            <div>
+                <form action="" method="POST" class="form-inline">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <p>Company name:</p>
+                    <p>
+                        <input type="text" class="form-control" name="co_name"/>
+                    </p>
+                    <p>Job description:</p>
+                    <p>
+                        <input type="text" class="form-control" name="job_description"/>
+                    </p>
+                    <p>Hourly rate:</p>
+                    <p>
+                        <input type="text" class="form-control" name="rate"/>
+                    </p>
+                    <p>OIB:</p>
+                    <p>
+                        <input type="text" class="form-control" name="OIB"/>
+                    </p>
+                        <span><input type="submit" class="btn btn-success" value="Save"/></span>
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection

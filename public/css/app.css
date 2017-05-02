@@ -1,0 +1,53 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);/*!
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+
+body {
+	padding: 5px;
+	background-color: white;
+	color: black;
+	text-align: center;
+}
+.title {
+	font-size: 60px;
+	font-family: serif;
+}
+.login-form {
+	width:100%;
+	margin: auto;
+	text-align: left;
+}
+.login-btn-space{	
+	margin: 10px;
+	padding: 5px;
+	box-shadow: 5px 5px 12px #888888;
+}
+.form {
+	margin: auto;
+	border-color: black;
+	border-style: solid;
+	border-radius: 5px;
+	border-width: 2px;
+	padding: 5px;
+	width:80%;
+	text-align: left;
+	box-shadow: 5px 5px 12px #888888;
+}
+
+.btn-space{
+	margin: 10px;
+	padding: 5px;
+	box-shadow: 5px 5px 12px #888888;
+}
+.ads {
+	margin: auto;
+	width: 70%;
+	text-align: left;
+}
+.updated {
+	font-size: 13px;
+    font-style: italic;
+}
