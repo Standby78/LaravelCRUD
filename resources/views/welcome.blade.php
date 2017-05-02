@@ -66,9 +66,11 @@
 				<br><span><input type="submit" class="btn btn-success" value="Save"/></span>
 		</form>
 	</div>
+	@if(Auth::check())
 	<div>
 		<button class="btn-info btn-space" id="more" onclick="$('.form').slideToggle(function(){$('#more').html($('.form').is(':visible')?'Discard':'New Ad');});">New Ad</button>
 	</div>
+	@endif
 	<div>
 		@yield('content')
 	</div>
