@@ -42,15 +42,18 @@
     <body>
 	
 	<div class="login-form" style="display:none">
-		<form action="" method="POST" class="form-inline">
+		<form action="login" method="POST" class="form-inline">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				Login: <input type="text" class="form-control" name="login" size="8"/> Password: <input type="text" class="form-control" size="8" name="pass"/>
 				<span><input type="submit" class="btn btn-success" value="Login"/></span>
 		</form>
 	</div>
+	@if(Auth::guest())
 	<div style="text-align: left">
+		Welcome Guest! Please login to add/edit your ads!<br>
 		<button class="btn-info btn-xs login-btn-space" id="login-more" onclick="$('.login-form').slideToggle(function(){$('#login-more').html($('.login-form').is(':visible')?'Discard':'Login');});">Login</button><br>
 	</div>
-
+	@endif
 	<div class="title">
 		CMG Laravel CRUD
 	</div>		  
