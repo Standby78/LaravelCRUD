@@ -41,10 +41,10 @@
 		</script>
 	</head>
 <body>
-	<h1>Hello, {{ Auth::user()->name }}</h1>
+	<h1>Welcome, {{ Auth::user()->name }}!</h1>
 	<div class="ads">
 		<hr>
-		<a href="/test/public">BACK</a>
+		<a href="/test/public">Go back to the homepage</a><br><br>
 		@foreach($ads as $ad)
 			<form action="update" method="POST" class="form-inline" onsubmit="return validate(this)">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
