@@ -7,7 +7,9 @@
 
         <title>CMG test app</title>
 		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script>
 		function validate() {
 			if(document.myForm.co_name.value == ""){
@@ -40,24 +42,30 @@
 		</script>
 	</head>
     <body>
-	
-	<div class="login-form" style="display:none">
-		<form action="login" method="POST" class="form-inline">
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				Login: <input type="text" class="form-control" name="login" size="8"/> Password: <input type="text" class="form-control" size="8" name="pass"/>
-				<span><input type="submit" class="btn btn-success" value="Login"/></span>
-		</form>
-	</div>
-	@if(Auth::guest())
-	<div style="text-align: left">
-		Welcome Guest! Please login to add/edit your ads!<br>
-		<button class="btn-info btn-xs login-btn-space" id="login-more" onclick="$('.login-form').slideToggle(function(){$('#login-more').html($('.login-form').is(':visible')?'Discard':'Login');});">Login</button><br>
-	</div>
-	@endif
 	<div class="title">
 		CMG Laravel CRUD
 	</div>		  
+	<div class="login-form" style="display:none">
+		<form action="http://localhost/test/public/login" role="form"  method="POST" class="form-inline">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<label class="sr-only" for="inputEmail">Email</label> <input id="email" type="email" class="form-control input-sm" name=" email" placeholder="Email" size="8"/>
+				<label class="sr-only" for="inputPassword">Password</label><input id="password" type="password" class="form-control input-sm" placeholder="Password" size="8" name="password"/>
+				<span><input type="submit" class="btn btn-success btn-sm" value="Login"/></span>
+		</form>
 	</div>
+		<div style="text-align: left">
+		@if(Auth::check())
+		Welcome, {{ Auth::user()->name }}.
+		To edit your posts click <a href="edit" class="">here</a>.<br>
+		<a href="test/public/logout/" class="btn">Logout</a>
+		@else
+		<div class="btn-group">	 
+			<a class="btn btn-default btn-xs login-btn-space" id="login-more" onclick="$('.login-form').slideToggle(function(){$('#login-more').html($('.login-form').is(':visible')?'Discard':'Login');});"> Login </a>
+			<a class="btn btn btn-default btn-xs login-btn-space" href="register">Register</a>
+		</div>
+		@endif
+			<hr>
+		</div>
 
 	<div class="form" style="display:none" onsubmit="return(validate());">
 		<form name="myForm" action="" method="POST" class="form-inline">
@@ -71,7 +79,7 @@
 	</div>
 	@if(Auth::check())
 	<div>
-		<button class="btn-info btn-space" id="more" onclick="$('.form').slideToggle(function(){$('#more').html($('.form').is(':visible')?'Discard':'New Ad');});">New Ad</button>
+		<button class="btn btn-default login-btn-space" id="more" onclick="$('.form').slideToggle(function(){$('#more').html($('.form').is(':visible')?'Discard':'New Ad');});">New Ad</button>
 	</div>
 	@endif
 	<div>
